@@ -1,0 +1,50 @@
+{
+    "expo": {
+        "name": "ScheduleApp",
+        "slug": "ScheduleApp",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "automatic",
+        "splash": {
+            "image": "./assets/agendaesplash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#2D0689"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "infoPlist": {
+                "NSRemindersUsageDescription": "Needed to access calendar events"
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#FFFFFF"
+            },
+            "permissions": [
+                "READ_CALENDAR",
+                "WRITE_CALENDAR"
+            ],
+            "softwareKeyboardLayoutMode": "pan"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "packagerOpts": {
+            "sourceExts": [
+                "js",
+                "json",
+                "ts",
+                "tsx",
+                "jsx"
+            ]
+        }
+    }
+}
