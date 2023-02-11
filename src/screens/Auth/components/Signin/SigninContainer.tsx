@@ -18,13 +18,13 @@ export default function SignIn({ navigation }) {
     setIsLoading(true);
     try {
       const response: IApiToken = await signin(signInData);
-      authCtx.authenticate(response.access_token);
-      console.log("[ACCESS TOKEN]", response.access_token);
+      authCtx.authenticate(response.accessToken);
+      console.log("[ACCESS TOKEN]", response.accessToken);
       setIsLoading(false);
     } catch (error) {
       Alert.alert(
         "Falha na autenticação!",
-        "Não foi possível fazer acessar no momento. Verifique seus dados ou tente novamente mais tarde."
+        "Não foi possível fazer seu login no momento. Verifique seus dados ou tente novamente mais tarde."
       );
       setIsLoading(false);
     }

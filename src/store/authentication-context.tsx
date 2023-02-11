@@ -15,12 +15,12 @@ function AuthContextProvider({ children }) {
 
   function authenticate(token: string) {
     setAuthToken(token);
-    AsyncStorage.setItem("access_token", token);
+    AsyncStorage.setItem("accessToken", token);
   }
 
   function logout() {
     setAuthToken(null);
-    AsyncStorage.removeItem("access_token");
+    AsyncStorage.removeItem("accessToken");
   }
 
   function updateProfile() {
@@ -29,7 +29,7 @@ function AuthContextProvider({ children }) {
 
   const value = {
     token: authToken,
-    isAuthenticated: true,
+    isAuthenticated: !!authToken,
     isProfileUpdate: profileUpdated,
     authenticate: authenticate,
     logout: logout,

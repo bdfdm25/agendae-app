@@ -71,6 +71,11 @@ export function SigninView({
             )}
             name="email"
           />
+          {errors.email && (
+            <Text style={GlobalStyles.inputErrorMessage}>
+              preenchimento obrigatório
+            </Text>
+          )}
         </View>
 
         <InputLabel label="senha" />
@@ -87,7 +92,7 @@ export function SigninView({
               required: true,
             }}
             render={({ field: { onChange, value } }) => (
-              <>
+              <View style={styles.passwordInputContainer}>
                 <TextInput
                   style={styles.passwordInputField}
                   autoCorrect={false}
@@ -107,10 +112,15 @@ export function SigninView({
                     color={GlobalStyles.colors.primary400}
                   />
                 </Pressable>
-              </>
+              </View>
             )}
             name="password"
           />
+          {errors.password && (
+            <Text style={GlobalStyles.inputErrorMessage}>
+              preenchimento obrigatório
+            </Text>
+          )}
         </View>
         <Text
           style={styles.forgotPasswordText}
