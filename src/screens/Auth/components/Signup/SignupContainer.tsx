@@ -1,14 +1,10 @@
 import { ISignup } from "@models/signup.interface";
 import { IUser } from "@models/user.interface";
 import { signup } from "@services/auth.service";
+import { RoleEnum } from "@utils/enums/role.enum";
 import { useState } from "react";
 import { Alert } from "react-native";
 import { SignupView } from "./SignupView";
-
-export enum RoleEnum {
-  CLIENT = "CLIENT",
-  SERVICE_PROVIDER = "SERVICE_PROVIDER",
-}
 
 export default function Signup({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);

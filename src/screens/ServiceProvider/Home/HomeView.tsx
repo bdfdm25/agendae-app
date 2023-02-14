@@ -1,20 +1,13 @@
 import AppointmentsList from "@components/Appointments/AppointmentsList";
+import EmptyAppointments from "@components/Appointments/EmptyAppointments";
 import NextAppointment from "@components/Appointments/NextAppointment";
+import Search from "@components/Search/SearchContainer";
 import { Subtitle, Title } from "@components/ui";
 import { GlobalStyles } from "@styles/styles";
-import { useContext } from "react";
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native";
-import { AppointmentsContext } from "../../../store/appointments-context";
-import Search from "@components/Search/SearchContainer";
+import { SafeAreaView, Text, View } from "react-native";
 import { styles } from "./styles";
-import EmptyAppointments from "@components/Appointments/EmptyAppointments";
-import { AuthContext } from "@store/authentication-context";
 
-export function HomeView() {
-  const appointmentsCtx = useContext(AppointmentsContext);
-  const authCtx = useContext(AuthContext);
-
+export function HomeView({ fullname, isProfileUpdated, appointments }) {
   function Appointments() {
     return (
       <>
@@ -26,7 +19,7 @@ export function HomeView() {
           <NextAppointment />
           <View style={styles.appointmentContainer}>
             <Text style={GlobalStyles.sectionTitle}>Agendamentos de hoje</Text>
-            <AppointmentsList appointments={appointmentsCtx.appointments} />
+            <AppointmentsList appointments={appointments} />
           </View>
         </View>
       </>
@@ -34,11 +27,11 @@ export function HomeView() {
   }
 
   function Root() {
-    if (authCtx.isProfileUpdate && appointmentsCtx.appointments.length > 0) {
+    if (isProfileUpdated && appointments.length > 0) {
       return <Appointments />;
     }
 
-    if (authCtx.isProfileUpdate && appointmentsCtx.appointments.length == 0) {
+    if (isProfileUpdated && appointments.length == 0) {
       return (
         <View style={{ marginTop: 60 }}>
           <EmptyAppointments
@@ -50,7 +43,7 @@ export function HomeView() {
       );
     }
 
-    if (!authCtx.isProfileUpdate) {
+    if (!isProfileUpdated) {
       return (
         <EmptyAppointments
           label="meu perfil"
@@ -65,10 +58,8 @@ export function HomeView() {
   return (
     <SafeAreaView style={[GlobalStyles.rootContainer]}>
       <View>
-        <Title color={GlobalStyles.colors.primary400}>Olá John Doe!</Title>
-        {appointmentsCtx.appointments.length > 0 && (
-          <Subtitle>5 novos agendamentos</Subtitle>
-        )}
+        <Title color={GlobalStyles.colors.primary400}>Olá {fullname}!</Title>
+        {appointments.length > 0 && <Subtitle>5 novos agendamentos</Subtitle>}
       </View>
 
       <Root />

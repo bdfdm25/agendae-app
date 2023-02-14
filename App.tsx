@@ -4,6 +4,7 @@ import AppointmentsContextProvider from "@store/appointments-context";
 import AuthContextProvider, {
   AuthContext,
 } from "@store/authentication-context";
+import { RoleEnum } from "@utils/enums/role.enum";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -18,19 +19,18 @@ import {
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const isServiceProvider = true;
   const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     async function prepare() {
       try {
-        const storedToken = await AsyncStorage.getItem("access_token");
-        authCtx.authenticate(storedToken);
+        const storedToken = await AsyncStorage.getItem("accessToken");
 
         if (storedToken) {
           authCtx.authenticate(storedToken);
         }
+
         await Font.loadAsync({
           "poppins-black": require("./assets/fonts/Poppins-Black.ttf"),
           "poppins-bold": require("./assets/fonts/Poppins-Bold.ttf"),
@@ -61,7 +61,8 @@ export default function App() {
   }
 
   function AuthenticatedStack() {
-    if (isServiceProvider) {
+    const authCtx = useContext(AuthContext);
+    if (authCtx.userInfo.role === RoleEnum.CLIENT) {
       return <ServiceProviderNavigator />;
     }
     return <ClientNavigator />;
