@@ -62,7 +62,7 @@ export default function App() {
 
   function AuthenticatedStack() {
     const authCtx = useContext(AuthContext);
-    if (authCtx.userInfo.role === RoleEnum.CLIENT) {
+    if (authCtx.userInfo.role === RoleEnum.SERVICE_PROVIDER) {
       return <ServiceProviderNavigator />;
     }
     return <ClientNavigator />;

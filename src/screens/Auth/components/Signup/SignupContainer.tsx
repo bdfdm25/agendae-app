@@ -20,6 +20,7 @@ export default function Signup({ navigation }) {
       email: signupData.email,
       password: signupData.password,
       role: "",
+      profileUpdated: false,
     };
 
     if (signupData.serviceProvider) {

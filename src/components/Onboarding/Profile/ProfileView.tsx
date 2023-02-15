@@ -12,15 +12,15 @@ import { ScrollView, Text, TextInput, View } from "react-native";
 import MaskInput, { Masks } from "react-native-mask-input";
 import { styles } from "./styles";
 
-export default function ProfileView({ exitHandler, submitHandler }) {
+export default function ProfileView({ exitHandler, submitHandler, userInfo }) {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      fullName: "John Doe",
-      email: "john.doe@test.com",
+      fullname: userInfo.fullname,
+      email: userInfo.email,
       phone: "",
       address: "",
       naturalPersonDocument: "",
@@ -57,7 +57,7 @@ export default function ProfileView({ exitHandler, submitHandler }) {
                 editable={false}
               />
             )}
-            name="fullName"
+            name="fullname"
           />
           {/* {errors.fullName && <Text style={GlobalStyles.inputErrorMessage}>preenchimento obrigatório</Text>} */}
         </View>

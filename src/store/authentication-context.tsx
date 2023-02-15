@@ -20,9 +20,11 @@ function AuthContextProvider({ children }) {
   const [profileUpdated, setProfileUpdated] = useState(false);
 
   function authenticate(token: string) {
-    const { email, fullname, role } = jwt_decode<ITokenPayload>(token);
-    setUserInfo({ email, fullname, role });
+    const { id, email, fullname, role, profileUpdated } =
+      jwt_decode<ITokenPayload>(token);
+    setUserInfo({ id, email, fullname, role });
     setAuthToken(token);
+    setProfileUpdated(profileUpdated);
     AsyncStorage.setItem("accessToken", token);
   }
 
