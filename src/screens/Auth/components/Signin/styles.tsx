@@ -54,4 +54,9 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
     color: GlobalStyles.colors.primary400,
   },
+  socialMediaAuthButtons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginVertical: 20,
+  },
 });

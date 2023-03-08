@@ -17,6 +17,7 @@ const Colors = {
   switchIosBackground: "#3e3e3e",
   inputPlaceholderColor: "#767577",
   disabledInputBackgroundColor: "#d4d4d4",
+  facebookBlue: "#4267B2",
 };
 
 export default Colors;

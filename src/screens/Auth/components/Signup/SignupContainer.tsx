@@ -19,17 +19,18 @@ export default function Signup({ navigation }) {
       fullname: signupData.fullname,
       email: signupData.email,
       password: signupData.password,
-      role: "",
+      role: RoleEnum.SERVICE_PROVIDER,
       profileUpdated: false,
     };
 
-    if (signupData.serviceProvider) {
-      user.role = RoleEnum.SERVICE_PROVIDER;
-    }
+    // PROFILE SELECTION LOGIC FLOW
+    // if (signupData.serviceProvider) {
+    //   user.role = RoleEnum.SERVICE_PROVIDER;
+    // }
 
-    if (signupData.client) {
-      user.role = RoleEnum.CLIENT;
-    }
+    // if (signupData.client) {
+    //   user.role = RoleEnum.CLIENT;
+    // }
 
     try {
       await signup(user);

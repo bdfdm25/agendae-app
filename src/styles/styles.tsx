@@ -19,6 +19,7 @@ export const GlobalStyles = {
     switchThumbDisable: "#F4F3F4",
     switchIosBackground: "#3E3E3E",
     inputPlaceholderColor: "#767577",
+    facebookBlue: "#4267B2",
   },
   rootContainer: {
     flex: 1,

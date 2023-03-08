@@ -45,6 +45,9 @@
                 "tsx",
                 "jsx"
             ]
-        }
+        },
+        "plugins": [
+            "expo-apple-authentication"
+        ]
     }
 }

@@ -6,10 +6,12 @@ import {
   Title,
 } from "@components/ui";
 import { Ionicons } from "@expo/vector-icons";
+import { Divider } from "@rneui/themed";
 import { GlobalStyles } from "@styles/styles";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Platform, Pressable, Text, TextInput, View } from "react-native";
+import AppleAuth from "../SocialMediaAuth/Apple/AppleAuth";
 import { styles } from "./styles";
 
 export function SigninView({
@@ -139,6 +141,12 @@ export function SigninView({
             Crie uma agora!
           </Text>
         </Text>
+      </View>
+
+      <Divider color={GlobalStyles.colors.primary400} />
+
+      <View style={styles.socialMediaAuthButtons}>
+        {Platform.OS === "ios" && <AppleAuth />}
       </View>
     </View>
   );
