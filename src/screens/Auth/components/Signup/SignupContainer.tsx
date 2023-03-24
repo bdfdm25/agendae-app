@@ -1,42 +1,55 @@
-import { IClient } from "@models/client.interface";
-import { IServiceProvider } from "@models/service-provider.interface";
 import { ISignup } from "@models/signup.interface";
-import { Routes } from "@navigation/routes.helper";
+import { IUser } from "@models/user.interface";
 import { signup } from "@services/auth.service";
+import { RoleEnum } from "@utils/enums/role.enum";
 import { useState } from "react";
+import { Alert } from "react-native";
 import { SignupView } from "./SignupView";
 
 export default function Signup({ navigation }) {
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-    function signinHandler() {
-        navigation.navigate("Signin");
+  function signinHandler() {
+    navigation.navigate("Signin");
+  }
+
+  async function signupHandler(signupData: ISignup) {
+    setIsLoading(true);
+    const user: IUser = {
+      fullname: signupData.fullname,
+      email: signupData.email,
+      password: signupData.password,
+      role: "",
+      profileUpdated: false,
+    };
+
+    if (signupData.serviceProvider) {
+      user.role = RoleEnum.SERVICE_PROVIDER;
     }
 
-    async function signupHandler(signupData: ISignup) {
-        setIsLoading(true);
-        if (signupData.serviceProvider) {
-            const serviceProvider: IServiceProvider = {
-                name: signupData.fullname,
-                email: signupData.email,
-                password: signupData.password,
-            };
-            await signup(Routes.REGISTER_SERVICE_PROVIDER, serviceProvider);
-            setIsLoading(false);
-        }
-
-        if (signupData.client) {
-            const client: IClient = {
-                name: signupData.fullname,
-                email: signupData.email,
-                password: signupData.password,
-            };
-            await signup(Routes.REGISTER_CLIENT, client);
-            setIsLoading(false);
-        }
-
-        navigation.navigate("Signin");
+    if (signupData.client) {
+      user.role = RoleEnum.CLIENT;
     }
 
-    return <SignupView signinHandler={signinHandler} signupHandler={signupHandler} loading={isLoading} />;
+    try {
+      await signup(user);
+      setIsLoading(false);
+    } catch (error) {
+      Alert.alert(
+        "Falha no cadastro!",
+        "Não foi possível realizar seu cadastro no momento. Verifique seus dados ou tente novamente mais tarde."
+      );
+      setIsLoading(false);
+    }
+
+    navigation.navigate("Signin");
+  }
+
+  return (
+    <SignupView
+      signinHandler={signinHandler}
+      signupHandler={signupHandler}
+      loading={isLoading}
+    />
+  );
 }

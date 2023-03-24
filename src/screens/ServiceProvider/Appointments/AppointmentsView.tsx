@@ -31,11 +31,11 @@ export function AppointmentsView({ addNewAppointmentHandler }) {
   }
 
   function Root() {
-    if (authCtx.isProfileUpdate && appointmentsCtx.appointments.length > 0) {
+    if (authCtx.isProfileUpdated && appointmentsCtx.appointments.length > 0) {
       return <Appointments />;
     }
 
-    if (authCtx.isProfileUpdate && appointmentsCtx.appointments.length == 0) {
+    if (authCtx.isProfileUpdated && appointmentsCtx.appointments.length == 0) {
       return (
         <View style={{ marginTop: 60 }}>
           <View style={styles.textOutterContainer}>
@@ -62,7 +62,7 @@ export function AppointmentsView({ addNewAppointmentHandler }) {
       );
     }
 
-    if (!authCtx.isProfileUpdate) {
+    if (!authCtx.isProfileUpdated) {
       return (
         <EmptyAppointments
           label="meu perfil"

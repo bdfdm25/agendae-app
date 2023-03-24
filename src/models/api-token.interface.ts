@@ -1,3 +1,3 @@
 export interface IApiToken {
-    access_token: string;
+  accessToken: string;
 }

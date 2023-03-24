@@ -1,9 +1,14 @@
+import { ITokenPayload } from "@models/token-payload.interface";
+import { IUser } from "@models/user.interface";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import jwt_decode from "jwt-decode";
 import { createContext, useState } from "react";
+
 export const AuthContext = createContext({
   token: "",
+  userInfo: { email: "", fullname: "", role: "" },
   isAuthenticated: false,
-  isProfileUpdate: false,
+  isProfileUpdated: false,
   authenticate: (token: string) => {},
   logout: () => {},
   updateProfile: () => {},
@@ -11,16 +16,21 @@ export const AuthContext = createContext({
 
 function AuthContextProvider({ children }) {
   const [authToken, setAuthToken] = useState("");
-  const [profileUpdated, setProfileUpdated] = useState(true);
+  const [userInfo, setUserInfo] = useState<IUser>();
+  const [profileUpdated, setProfileUpdated] = useState(false);
 
   function authenticate(token: string) {
+    const { id, email, fullname, role, profileUpdated } =
+      jwt_decode<ITokenPayload>(token);
+    setUserInfo({ id, email, fullname, role });
     setAuthToken(token);
-    AsyncStorage.setItem("access_token", token);
+    setProfileUpdated(profileUpdated);
+    AsyncStorage.setItem("accessToken", token);
   }
 
   function logout() {
     setAuthToken(null);
-    AsyncStorage.removeItem("access_token");
+    AsyncStorage.removeItem("accessToken");
   }
 
   function updateProfile() {
@@ -29,8 +39,9 @@ function AuthContextProvider({ children }) {
 
   const value = {
     token: authToken,
-    isAuthenticated: true,
-    isProfileUpdate: profileUpdated,
+    userInfo: userInfo,
+    isAuthenticated: !!authToken,
+    isProfileUpdated: profileUpdated,
     authenticate: authenticate,
     logout: logout,
     updateProfile: updateProfile,

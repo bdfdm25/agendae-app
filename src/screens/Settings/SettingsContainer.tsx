@@ -1,4 +1,3 @@
-import { StackActions } from "@react-navigation/native";
 import { AuthContext } from "@store/authentication-context";
 import { useContext } from "react";
 import { Alert } from "react-native";
