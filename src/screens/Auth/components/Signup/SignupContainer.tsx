@@ -19,30 +19,31 @@ export default function Signup({ navigation }) {
       fullname: signupData.fullname,
       email: signupData.email,
       password: signupData.password,
-      role: "",
+      role: RoleEnum.SERVICE_PROVIDER,
       profileUpdated: false,
     };
 
-    if (signupData.serviceProvider) {
-      user.role = RoleEnum.SERVICE_PROVIDER;
-    }
+    // PROFILE SELECTION LOGIC FLOW
+    // if (signupData.serviceProvider) {
+    //   user.role = RoleEnum.SERVICE_PROVIDER;
+    // }
 
-    if (signupData.client) {
-      user.role = RoleEnum.CLIENT;
-    }
+    // if (signupData.client) {
+    //   user.role = RoleEnum.CLIENT;
+    // }
 
     try {
       await signup(user);
       setIsLoading(false);
+      navigation.navigate("Signin");
     } catch (error) {
+      console.log(error);
       Alert.alert(
         "Falha no cadastro!",
         "Não foi possível realizar seu cadastro no momento. Verifique seus dados ou tente novamente mais tarde."
       );
       setIsLoading(false);
     }
-
-    navigation.navigate("Signin");
   }
 
   return (
