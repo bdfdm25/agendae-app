@@ -4,8 +4,9 @@ import ScheduleConfig from "@components/Onboarding/ScheduleConfig";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import PwdRecovery from "@screens/Auth/components/PwdRecovery";
+import EmailForm from "@screens/Auth/components/PwdRecovery/EmailForm";
 import PwdRecoveySuccessMsg from "@screens/Auth/components/PwdRecovery/PwdRecoverySuccessMsg";
+import ResetForm from "@screens/Auth/components/PwdRecovery/ResetForm";
 import SignIn from "@screens/Auth/components/Signin";
 import Signup from "@screens/Auth/components/Signup";
 import HomeClient from "@screens/Client/Home";
@@ -13,7 +14,6 @@ import Nearby from "@screens/Client/Nearby";
 import Appointments from "@screens/ServiceProvider/Appointments";
 import NewAppointment from "@screens/ServiceProvider/Appointments/components/NewAppointment";
 import HomeServiceProvider from "@screens/ServiceProvider/Home";
-import Stats from "@screens/ServiceProvider/Stats";
 import Settings from "@screens/Settings";
 import { SettingsNavigator } from "@screens/Settings/SettingsNavigator";
 import OnboardingContextProvider from "@store/onboarding-context";
@@ -44,7 +44,15 @@ export function AuthNavigator() {
       />
       <AuthStack.Screen
         name="Recovery"
-        component={PwdRecovery}
+        component={EmailForm}
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+      />
+      <AuthStack.Screen
+        name="Reset"
+        component={ResetForm}
         options={{
           headerShown: false,
           headerTransparent: true,

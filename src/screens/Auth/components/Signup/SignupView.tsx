@@ -38,20 +38,21 @@ export function SignupView({ signinHandler, signupHandler, loading }) {
 
   const [newPasswordVisibility, setNewPasswordVisibility] = useState(true);
 
-  const [isSpEnabled, setIsSpEnabled] = useState(false);
-  const [isClEnabled, setIsClEnabled] = useState(false);
+  // PROFILE SELECTION HANDLERS
+  // const [isSpEnabled, setIsSpEnabled] = useState(false);
+  // const [isClEnabled, setIsClEnabled] = useState(false);
 
-  const toggleSpSwitch = () => {
-    setIsSpEnabled((previousState) => !previousState);
-    setIsClEnabled(isSpEnabled);
-    setValue("serviceProvider", !isSpEnabled);
-  };
+  // const toggleSpSwitch = () => {
+  //   setIsSpEnabled((previousState) => !previousState);
+  //   setIsClEnabled(isSpEnabled);
+  //   setValue("serviceProvider", !isSpEnabled);
+  // };
 
-  const toggleClSwitch = () => {
-    setIsClEnabled((previousState) => !previousState);
-    setIsSpEnabled(isClEnabled);
-    setValue("client", !isClEnabled);
-  };
+  // const toggleClSwitch = () => {
+  //   setIsClEnabled((previousState) => !previousState);
+  //   setIsSpEnabled(isClEnabled);
+  //   setValue("client", !isClEnabled);
+  // };
 
   const spinner = <LoadingButton />;
   const signup = (
@@ -170,7 +171,8 @@ export function SignupView({ signinHandler, signupHandler, loading }) {
           </View>
         </View>
 
-        <View style={styles.profileSelectorOutterContainer}>
+        {/* PROFILE SELECTION */}
+        {/* <View style={styles.profileSelectorOutterContainer}>
           <Text style={styles.profileSelectorTitle}>Qual seu perfil?</Text>
           <View style={styles.switchGroup}>
             <Text style={styles.profileTitle}>Prestador de Serviço</Text>
@@ -226,7 +228,7 @@ export function SignupView({ signinHandler, signupHandler, loading }) {
               name="client"
             />
           </View>
-        </View>
+        </View> */}
 
         <View style={styles.buttonOuterContainer}>{signupBtn}</View>
 
