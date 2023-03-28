@@ -18,7 +18,6 @@ export default function ResetForm({ navigation }) {
       setIsLoading(false);
       navigation.navigate("Signin");
     } catch (error) {
-      console.log(error.response);
       Alert.alert(
         "Falha no cadastro!",
         "Não foi possível realizar seu cadastro no momento. Verifique seus dados ou tente novamente mais tarde."
