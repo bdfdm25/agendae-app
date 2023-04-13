@@ -15,6 +15,7 @@ import {
   ClientNavigator,
   ServiceProviderNavigator,
 } from "./src/navigation/Navigators";
+import HttpContextProvider from "@store/http-context";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -82,11 +83,13 @@ export default function App() {
     <>
       <StatusBar style="dark" />
       <AuthContextProvider>
-        <AppointmentsContextProvider>
-          <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-            <Navigation />
-          </View>
-        </AppointmentsContextProvider>
+        <HttpContextProvider>
+          <AppointmentsContextProvider>
+            <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+              <Navigation />
+            </View>
+          </AppointmentsContextProvider>
+        </HttpContextProvider>
       </AuthContextProvider>
     </>
   );
