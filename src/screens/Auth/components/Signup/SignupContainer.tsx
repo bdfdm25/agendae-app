@@ -1,13 +1,15 @@
 import { ISignup } from "@models/signup.interface";
 import { IUser } from "@models/user.interface";
-import { signup } from "@services/auth.service";
+import { Routes } from "@navigation/routes.helper";
+import { HttpContext } from "@store/http-context";
 import { RoleEnum } from "@utils/enums/role.enum";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Alert } from "react-native";
 import { SignupView } from "./SignupView";
 
 export default function Signup({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
+  const httpCtx = useContext(HttpContext);
 
   function signinHandler() {
     navigation.navigate("Signin");
@@ -33,7 +35,8 @@ export default function Signup({ navigation }) {
     // }
 
     try {
-      await signup(user);
+      // await signup(user);
+      await httpCtx.post(Routes.SIGNUP, user);
       setIsLoading(false);
       navigation.navigate("Signin");
     } catch (error) {

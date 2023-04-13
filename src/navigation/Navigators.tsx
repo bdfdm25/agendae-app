@@ -1,6 +1,7 @@
 import NewService from "@components/Onboarding/NewService";
+import OpeningHours from "@components/Onboarding/OpeningHours";
 import Profile from "@components/Onboarding/Profile";
-import ScheduleConfig from "@components/Onboarding/ScheduleConfig";
+
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -255,8 +256,8 @@ export function ServiceProviderOnboardingNavigator() {
           component={Profile}
         />
         <ServiceProviderOnboardingStack.Screen
-          name="ScheduleConfig"
-          component={ScheduleConfig}
+          name="OpeningHours"
+          component={OpeningHours}
         />
         <ServiceProviderOnboardingStack.Screen
           name="NewService"

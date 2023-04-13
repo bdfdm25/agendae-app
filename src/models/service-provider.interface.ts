@@ -1,5 +1,13 @@
+import { INewService } from "./new-service.interface";
+import { IOpeningHours } from "./opening-hours.interface";
+
 export interface IServiceProvider {
-    name: string;
-    email: string;
-    password: string;
+  fullname: string;
+  email: string;
+  phone: string;
+  address: string;
+  naturalPersonDocument: string;
+  legalPersonDocument: string;
+  openingHours: IOpeningHours;
+  services: INewService[];
 }

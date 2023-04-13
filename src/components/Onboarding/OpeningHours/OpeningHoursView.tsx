@@ -12,10 +12,7 @@ import { Controller, useForm } from "react-hook-form";
 import { ScrollView, Text, View } from "react-native";
 import { styles } from "./styles";
 
-export default function ScheduleConfigView({
-  navigationHandler,
-  submitHandler,
-}) {
+export default function OpeningHoursView({ navigationHandler, submitHandler }) {
   const {
     control,
     handleSubmit,
