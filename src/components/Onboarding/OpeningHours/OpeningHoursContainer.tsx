@@ -1,23 +1,21 @@
-import { IScheduleConfig } from "@models/schedule-config.interface";
 import { OnboardingContext } from "@store/onboarding-context";
 import { useContext } from "react";
-import ScheduleConfigView from "./ScheduleConfigView";
+import OpeningHoursView from "./OpeningHoursView";
+import { IOpeningHours } from "@models/opening-hours.interface";
 
-export default function ScheduleConfig({ navigation }) {
+export default function OpeningHours({ navigation }) {
   const profileCtx = useContext(OnboardingContext);
   function navigationHandler(route: string) {
     navigation.navigate(route);
   }
 
-  function submitHandler(data: IScheduleConfig) {
-    profileCtx.setScheduleInfo(data);
-    console.log("[SCHEDULE CTX]", profileCtx.onboardingInfo);
-    console.log("[SCHEDULE DATA]", data);
+  function submitHandler(data: IOpeningHours) {
+    profileCtx.setOpeningHours(data);
     navigation.navigate("NewService");
   }
 
   return (
-    <ScheduleConfigView
+    <OpeningHoursView
       navigationHandler={(route: string) => navigationHandler(route)}
       submitHandler={submitHandler}
     />

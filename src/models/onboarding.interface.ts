@@ -1,9 +1,9 @@
 import { INewService } from "./new-service.interface";
 import { IProfile } from "./profile.interface";
-import { IScheduleConfig } from "./schedule-config.interface";
+import { IOpeningHours } from "./opening-hours.interface";
 
 export interface IOnboarding {
   profile: IProfile;
-  scheduleConfig: IScheduleConfig;
-  newService: INewService;
+  openingHours: IOpeningHours;
+  services: INewService[];
 }

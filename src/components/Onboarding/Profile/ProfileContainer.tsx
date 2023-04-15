@@ -14,9 +14,7 @@ export default function Profile({ navigation }) {
 
   function submitHandler(data: IProfile) {
     profileCtx.setProfileInfo(data);
-    console.log("[PROFILE CTX]", profileCtx.onboardingInfo);
-    console.log("[PROFILE DATA]", data);
-    navigation.navigate("ScheduleConfig");
+    navigation.navigate("OpeningHours");
   }
 
   return (
