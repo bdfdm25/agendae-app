@@ -9,13 +9,14 @@ import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import {
   AuthNavigator,
   ClientNavigator,
   ServiceProviderNavigator,
 } from "./src/navigation/Navigators";
 import HttpContextProvider from "@store/http-context";
+import { GlobalStyles } from "@styles/styles";
 
 SplashScreen.preventAutoHideAsync();
 

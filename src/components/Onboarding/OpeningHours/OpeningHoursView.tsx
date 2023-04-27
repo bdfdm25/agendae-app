@@ -7,7 +7,7 @@ import {
 } from "@components/ui";
 import AccordionList from "@components/ui/AccordionList";
 import { GlobalStyles } from "@styles/styles";
-import { LocaleConfig } from "@utils/locale/LocaleConfig";
+import { CalendarConfig } from "@utils/locale/LocaleConfig";
 import { Controller, useForm } from "react-hook-form";
 import { ScrollView, Text, View } from "react-native";
 import { styles } from "./styles";
@@ -26,8 +26,8 @@ export default function OpeningHoursView({ navigationHandler, submitHandler }) {
     },
   });
 
-  const workDays = LocaleConfig.dayNames;
-  const workHours = LocaleConfig.workHours;
+  const workDays = CalendarConfig.dayNames;
+  const workHours = CalendarConfig.workHours;
 
   return (
     <Form>

@@ -10,7 +10,7 @@ import { ScrollView, Text, TextInput, View } from "react-native";
 import { styles } from "./styles";
 import { Controller, useForm } from "react-hook-form";
 import MaskInput, { Masks } from "react-native-mask-input";
-import { LocaleConfig } from "@utils/locale/LocaleConfig";
+import { CalendarConfig } from "@utils/locale/LocaleConfig";
 import AccordionList from "@components/ui/AccordionList";
 
 export function NewAppointmentView({ submitHandler, exitHandler }) {
@@ -28,7 +28,7 @@ export function NewAppointmentView({ submitHandler, exitHandler }) {
     },
   });
 
-  const workHours = LocaleConfig.workHours;
+  const workHours = CalendarConfig.workHours;
 
   return (
     <Form>

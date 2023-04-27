@@ -1,7 +1,8 @@
+import { APPOINTMENTS } from "@mock/mock-data";
 import isEmpty from "lodash/isEmpty";
 
 const today = new Date().toISOString().split("T")[0];
-const fastDate = getPastDate(3);
+const fastDate = getPastDate(4);
 const futureDates = getFutureDates(12);
 const dates = [fastDate, today].concat(futureDates);
 
@@ -20,6 +21,7 @@ function getFutureDates(numberOfDays: number) {
   }
   return array;
 }
+
 function getPastDate(numberOfDays: number) {
   return new Date(Date.now() - 864e5 * numberOfDays)
     .toISOString()
@@ -65,7 +67,7 @@ export const agendaItems = [
   },
   {
     title: dates[6],
-    data: [{ hour: "12am", duration: "1h", title: "Ashtanga Yoga" }],
+    data: [{}],
   },
   {
     title: dates[7],
@@ -107,6 +109,65 @@ export const agendaItems = [
   {
     title: dates[13],
     data: [{ hour: "12am", duration: "1h", title: "Last Yoga" }],
+  },
+];
+
+export const AGENDA = [
+  {
+    title: dates[0],
+    data: APPOINTMENTS,
+  },
+  {
+    title: dates[1],
+    data: [APPOINTMENTS[0], APPOINTMENTS[1]],
+  },
+  {
+    title: dates[2],
+    data: [APPOINTMENTS[0], APPOINTMENTS[1], APPOINTMENTS[2], APPOINTMENTS[3]],
+  },
+  {
+    title: dates[3],
+    data: [APPOINTMENTS[0]],
+  },
+  {
+    title: dates[4],
+    data: [{}],
+  },
+  {
+    title: dates[5],
+    data: [{}],
+  },
+  {
+    title: dates[6],
+    data: [{}],
+  },
+  {
+    title: dates[7],
+    data: [{}],
+  },
+  {
+    title: dates[8],
+    data: [{}],
+  },
+  {
+    title: dates[9],
+    data: [{}],
+  },
+  {
+    title: dates[10],
+    data: [{}],
+  },
+  {
+    title: dates[11],
+    data: [{}],
+  },
+  {
+    title: dates[12],
+    data: [{}],
+  },
+  {
+    title: dates[13],
+    data: [{}],
   },
 ];
 

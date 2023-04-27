@@ -1,33 +1,18 @@
+import { AGENDA, APPOINTMENTS } from "@mock/mock-data";
 import React, { useCallback, useRef } from "react";
-import { StyleSheet } from "react-native";
-import {
-  AgendaList,
-  CalendarProvider,
-  ExpandableCalendar,
-} from "react-native-calendars";
+import { CalendarProvider, ExpandableCalendar } from "react-native-calendars";
+import { FlatList } from "react-native-gesture-handler";
 import AgendaItem from "./AgendaItem";
-import { agendaItems } from "./agendaItems";
-import { getTheme, lightThemeColor, themeColor } from "./theme";
+import { getTheme, themeColor } from "./styles";
 
-const ITEMS: any[] = agendaItems;
+const ITEMS: any[] = AGENDA;
 
-interface Props {
-  weekView?: boolean;
-}
-
-const AgendaView = (props: Props) => {
+export function AgendaView({ onDateChanged, onMonthChange }) {
+  const today = new Date().toISOString();
   const theme = useRef(getTheme());
   const todayBtnTheme = useRef({
     todayButtonTextColor: themeColor,
   });
-
-  const onDateChanged = useCallback((date, updateSource) => {
-    console.log("ExpandableCalendarScreen onDateChanged: ", date, updateSource);
-  }, []);
-
-  const onMonthChange = useCallback(({ dateString }) => {
-    console.log("ExpandableCalendarScreen onMonthChange: ", dateString);
-  }, []);
 
   const renderItem = useCallback(({ item }: any) => {
     return <AgendaItem item={item} />;
@@ -35,36 +20,28 @@ const AgendaView = (props: Props) => {
 
   return (
     <CalendarProvider
-      date={ITEMS[1]?.title}
+      date={today.split("T")[0]}
       onDateChanged={onDateChanged}
       onMonthChange={onMonthChange}
       showTodayButton
       theme={todayBtnTheme.current}
       todayBottomMargin={16}
     >
-      <ExpandableCalendar theme={theme.current} firstDay={1} />
-      <AgendaList
+      <ExpandableCalendar
+        theme={theme.current}
+        initialPosition={ExpandableCalendar.positions.CLOSED}
+        firstDay={1}
+        allowShadow={false}
+        disableWeekScroll={true}
+        closeOnDayPress={true}
+      />
+      <FlatList data={APPOINTMENTS} renderItem={renderItem} />
+      {/* <AgendaList
         sections={ITEMS}
         renderItem={renderItem}
+        scrollToNextEvent
         sectionStyle={styles.section}
-      />
+      /> */}
     </CalendarProvider>
   );
-};
-
-export default AgendaView;
-
-const styles = StyleSheet.create({
-  calendar: {
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  header: {
-    backgroundColor: "#FFD700",
-  },
-  section: {
-    backgroundColor: lightThemeColor,
-    color: "#3E04C3",
-    textTransform: "capitalize",
-  },
-});
+}

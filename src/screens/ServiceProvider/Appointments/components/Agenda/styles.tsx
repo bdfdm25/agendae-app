@@ -1,7 +1,17 @@
+import { StyleSheet } from "react-native";
 import { Platform } from "react-native";
 
 export const themeColor = "#3E04C3";
 export const lightThemeColor = "#E4D9FD";
+
+export const styles = StyleSheet.create({
+  section: {
+    // display: "none",
+    backgroundColor: lightThemeColor,
+    color: "#3E04C3",
+    textTransform: "capitalize",
+  },
+});
 
 export function getTheme() {
   const disabledColor = "grey";
@@ -35,9 +45,9 @@ export function getTheme() {
     // disabled date
     textDisabledColor: disabledColor,
     // dot (marked date)
-    dotColor: themeColor,
-    selectedDotColor: "#FFD700",
-    disabledDotColor: disabledColor,
-    dotStyle: { marginTop: -1 },
+    // dotColor: themeColor,
+    // selectedDotColor: "#FFD700",
+    // disabledDotColor: disabledColor,
+    // dotStyle: { marginTop: -1 },
   };
 }

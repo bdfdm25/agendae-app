@@ -58,7 +58,7 @@ export function HomeView({ fullname, isProfileUpdated, appointments }) {
   return (
     <SafeAreaView style={[GlobalStyles.rootContainer]}>
       <View>
-        <Title color={GlobalStyles.colors.primary400}>Olá {fullname}!</Title>
+        <Title color={GlobalStyles.colors.primary400}>olá {fullname}!</Title>
         {appointments.length > 0 && <Subtitle>5 novos agendamentos</Subtitle>}
       </View>
 
