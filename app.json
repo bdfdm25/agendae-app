@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "ScheduleApp",
-        "slug": "ScheduleApp",
+        "name": "agendae",
+        "slug": "agendae",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
