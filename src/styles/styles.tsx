@@ -22,7 +22,7 @@ export const GlobalStyles = {
   },
   rootContainer: {
     flex: 1,
-    marginHorizontal: 25,
+    marginHorizontal: 18,
     marginTop: 40,
     paddingTop: Platform.OS === "android" ? 15 : 0,
   },
