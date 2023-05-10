@@ -7,8 +7,10 @@ import { AppointmentsContext } from "@store/appointments-context";
 import { AuthContext } from "@store/authentication-context";
 import { GlobalStyles } from "@styles/styles";
 import { useContext } from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { Platform, SafeAreaView, StatusBar, Text, View } from "react-native";
 import { styles } from "./styles";
+import Agenda from "./components/Agenda";
+import TimelineCalendarScreen from "./components/Agenda/TimeLine";
 
 export function AppointmentsView({ addNewAppointmentHandler }) {
   const appointmentsCtx = useContext(AppointmentsContext);
@@ -17,7 +19,10 @@ export function AppointmentsView({ addNewAppointmentHandler }) {
   function Appointments() {
     return (
       <>
-        <Calendar />
+        <Agenda />
+        {/* <TimelineCalendarScreen /> */}
+        {/* <SimpleAgenda /> */}
+        {/* <Calendar />
         <View style={styles.appointmentContainer}>
           <AppointmentsList appointments={appointmentsCtx.appointments} />
         </View>
@@ -25,7 +30,7 @@ export function AppointmentsView({ addNewAppointmentHandler }) {
           <PrimaryButton onPress={addNewAppointmentHandler}>
             novo agendamento
           </PrimaryButton>
-        </View>
+        </View> */}
       </>
     );
   }
@@ -75,8 +80,20 @@ export function AppointmentsView({ addNewAppointmentHandler }) {
   }
 
   return (
-    <SafeAreaView style={[GlobalStyles.rootContainer]}>
-      <Title color={GlobalStyles.colors.primary400}>Agendamentos</Title>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
+      }}
+    >
+      <View
+        style={{
+          paddingHorizontal: 18,
+          paddingVertical: 15,
+        }}
+      >
+        <Title color={GlobalStyles.colors.primary400}>agendamentos</Title>
+      </View>
       <View style={{ flex: 1 }}>
         <Root />
       </View>

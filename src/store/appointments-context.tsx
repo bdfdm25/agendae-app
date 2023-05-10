@@ -33,7 +33,10 @@ function appointmentReducer(state, action) {
 }
 
 function AppointmentsContextProvider({ children }) {
-  const [appointmentsState, dispatch] = useReducer(appointmentReducer, []);
+  const [appointmentsState, dispatch] = useReducer(
+    appointmentReducer,
+    APPOINTMENTS
+  );
 
   function addAppointment(appointmentData) {
     dispatch({ type: "ADD", payload: appointmentData });

@@ -1,16 +1,19 @@
-const BASE_URL_DEV =
+export const BASE_URL =
   "http://agendae-dev-env.eba-qmbcazzx.us-east-1.elasticbeanstalk.com/api";
 
-const BASE_URL_LOCAL = "http://189.61.155.33:3333/api";
+// const BASE_URL = "http://189.61.155.33:3333/api";
 
 export class Routes {
   // Auth
-  static REGISTER_CLIENT = `${BASE_URL_DEV}/client`;
-  static REGISTER_SERVICE_PROVIDER = `${BASE_URL_DEV}/service-provider/save`;
-  static SIGNIN = `${BASE_URL_DEV}/auth/signin`;
-  static SIGNUP = `${BASE_URL_DEV}/auth/signup`;
-  static VALIDATION_CODE = `${BASE_URL_DEV}/password-recovery/validation-code`;
-  static RESET_PASSWORD = `${BASE_URL_DEV}/password-recovery/reset`;
+  static REGISTER_CLIENT = `${BASE_URL}/client`;
+  static REGISTER_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
+  static SIGNIN = `${BASE_URL}/auth/signin`;
+  static SIGNUP = `${BASE_URL}/auth/signup`;
+  static VALIDATION_CODE = `${BASE_URL}/password-recovery/validation-code`;
+  static RESET_PASSWORD = `${BASE_URL}/password-recovery/reset`;
+
+  // SERVICE PROVIDER
+  static SAVE_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
 }
 
 // export class Pages {

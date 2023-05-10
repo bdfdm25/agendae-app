@@ -35,7 +35,6 @@ function AccordionList({ title, itemList, onSelect }: IAccordionListProps) {
         {itemList.map((item, i) => (
           <ListItem
             key={i}
-            bottomDivider
             onPress={() => {
               setAccordionValue(item);
               setAccordionState(!accordionState);
