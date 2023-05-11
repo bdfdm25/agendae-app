@@ -1,5 +1,4 @@
-import { IAppointment } from "@models/appointment.interface";
-import isEmpty from "lodash/isEmpty";
+import { ISchedule } from "@models/schedule.interface";
 
 const today = new Date().toISOString().split("T")[0];
 const fastDate = getPastDate(4);
@@ -55,7 +54,7 @@ export const CATEGORIES = [
   },
 ];
 
-export const APPOINTMENTS: IAppointment[] = [
+export const SCHEDULES: ISchedule[] = [
   {
     id: new Date().toString() + Math.random().toString(),
     serviceType: "Corte",
@@ -141,7 +140,7 @@ export const APPOINTMENTS: IAppointment[] = [
 export const AGENDA = [
   {
     title: "2023-04-25",
-    data: APPOINTMENTS,
+    data: SCHEDULES,
   },
   {
     title: "2023-04-26",
@@ -149,11 +148,11 @@ export const AGENDA = [
   },
   {
     title: "2023-04-27",
-    data: [APPOINTMENTS[0], APPOINTMENTS[1], APPOINTMENTS[2], APPOINTMENTS[3]],
+    data: [SCHEDULES[0], SCHEDULES[1], SCHEDULES[2], SCHEDULES[3]],
   },
   {
     title: "2023-04-28",
-    data: [APPOINTMENTS[0]],
+    data: [SCHEDULES[0]],
   },
   {
     title: "2023-04-29",

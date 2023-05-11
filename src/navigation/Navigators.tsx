@@ -12,9 +12,9 @@ import SignIn from "@screens/Auth/components/Signin";
 import Signup from "@screens/Auth/components/Signup";
 import HomeClient from "@screens/Client/Home";
 import Nearby from "@screens/Client/Nearby";
-import Appointments from "@screens/ServiceProvider/Appointments";
-import NewAppointment from "@screens/ServiceProvider/Appointments/components/NewAppointment";
 import HomeServiceProvider from "@screens/ServiceProvider/Home";
+import Schedules from "@screens/ServiceProvider/Schedules";
+import NewSchedule from "@screens/ServiceProvider/Schedules/components/NewSchedule";
 import Settings from "@screens/Settings";
 import { SettingsNavigator } from "@screens/Settings/SettingsNavigator";
 import OnboardingContextProvider from "@store/onboarding-context";
@@ -110,7 +110,7 @@ export function ServiceProviderNavigator() {
         }}
       />
       <ServiceProviderStack.Screen
-        name="NewAppointment"
+        name="NewSchedule"
         component={ModalStackNavigator}
         options={{
           headerShown: false,
@@ -163,13 +163,13 @@ export function ClientTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Appointments"
-        component={Appointments}
+        name="Schedules"
+        component={Schedules}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="calendar" color={color} size={size} />
           ),
-          tabBarAccessibilityLabel: "Appointments",
+          tabBarAccessibilityLabel: "Schedules",
         }}
       />
       <Tab.Screen
@@ -208,13 +208,13 @@ export function ServiceProviderTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Appointments"
-        component={Appointments}
+        name="Schedules"
+        component={Schedules}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="calendar" color={color} size={size} />
           ),
-          tabBarAccessibilityLabel: "appointments",
+          tabBarAccessibilityLabel: "Schedules",
         }}
       />
       {/* <Tab.Screen
@@ -276,7 +276,7 @@ export function ModalStackNavigator() {
         headerShown: false,
       }}
     >
-      <ModalStack.Screen name="New" component={NewAppointment} />
+      <ModalStack.Screen name="New" component={NewSchedule} />
     </ModalStack.Navigator>
   );
 }

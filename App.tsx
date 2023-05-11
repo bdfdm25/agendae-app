@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
-import AppointmentsContextProvider from "@store/appointments-context";
+import SchedulesContextProvider from "@store/schedules-context";
 import AuthContextProvider, {
   AuthContext,
 } from "@store/authentication-context";
@@ -85,11 +85,11 @@ export default function App() {
       <StatusBar style="dark" />
       <AuthContextProvider>
         <HttpContextProvider>
-          <AppointmentsContextProvider>
+          <SchedulesContextProvider>
             <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
               <Navigation />
             </View>
-          </AppointmentsContextProvider>
+          </SchedulesContextProvider>
         </HttpContextProvider>
       </AuthContextProvider>
     </>

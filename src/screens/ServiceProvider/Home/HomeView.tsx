@@ -1,14 +1,15 @@
-import AppointmentsList from "@components/Appointments/AppointmentsList";
-import EmptyAppointments from "@components/Appointments/EmptyAppointments";
-import NextAppointment from "@components/Appointments/NextAppointment";
+import ScheduleList from "@components/Schedules/ScheduleList";
+
+import EmptyScheduleWarning from "@components/Schedules/EmptyScheduleWarning";
+import NextSchedule from "@components/Schedules/NextSchedule";
 import Search from "@components/Search/SearchContainer";
 import { Subtitle, Title } from "@components/ui";
 import { GlobalStyles } from "@styles/styles";
 import { SafeAreaView, Text, View } from "react-native";
 import { styles } from "./styles";
 
-export function HomeView({ fullname, isProfileUpdated, appointments }) {
-  function Appointments() {
+export function HomeView({ fullname, isProfileUpdated, schedules }) {
+  function Schedules() {
     return (
       <>
         <View>
@@ -16,10 +17,10 @@ export function HomeView({ fullname, isProfileUpdated, appointments }) {
         </View>
 
         <View style={{ flex: 1 }}>
-          <NextAppointment />
-          <View style={styles.appointmentContainer}>
+          <NextSchedule />
+          <View style={styles.scheduleContainer}>
             <Text style={GlobalStyles.sectionTitle}>Agendamentos de hoje</Text>
-            <AppointmentsList appointments={appointments} />
+            <ScheduleList schedules={schedules} />
           </View>
         </View>
       </>
@@ -27,17 +28,17 @@ export function HomeView({ fullname, isProfileUpdated, appointments }) {
   }
 
   function Root() {
-    if (isProfileUpdated && appointments.length > 0) {
-      return <Appointments />;
+    if (isProfileUpdated && schedules.length > 0) {
+      return <Schedules />;
     }
 
-    if (isProfileUpdated && appointments.length == 0) {
+    if (isProfileUpdated && schedules.length == 0) {
       return (
         <View style={{ marginTop: 60 }}>
-          <EmptyAppointments
+          <EmptyScheduleWarning
             label="novo agendamento"
             message="Comece adicionando um novo agendamento em sua lista!"
-            route="NewAppointment"
+            route="NewSchedule"
           />
         </View>
       );
@@ -45,7 +46,7 @@ export function HomeView({ fullname, isProfileUpdated, appointments }) {
 
     if (!isProfileUpdated) {
       return (
-        <EmptyAppointments
+        <EmptyScheduleWarning
           label="meu perfil"
           message="Atualize seu perfil para começar a visualizar seus agendamentos e
             gerenciar seus pagamentos."
@@ -59,7 +60,7 @@ export function HomeView({ fullname, isProfileUpdated, appointments }) {
     <SafeAreaView style={[GlobalStyles.rootContainer]}>
       <View>
         <Title color={GlobalStyles.colors.primary400}>olá {fullname}!</Title>
-        {appointments.length > 0 && <Subtitle>5 novos agendamentos</Subtitle>}
+        {schedules.length > 0 && <Subtitle>5 novos agendamentos</Subtitle>}
       </View>
 
       <Root />
