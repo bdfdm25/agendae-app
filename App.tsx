@@ -1,22 +1,21 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import SchedulesContextProvider from "@store/schedules-context";
+
 import AuthContextProvider, {
   AuthContext,
-} from "@store/authentication-context";
+} from "@screens/Auth/context/authentication-context";
 import { RoleEnum } from "@utils/enums/role.enum";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { Platform, View } from "react-native";
+import { View } from "react-native";
 import {
   AuthNavigator,
   ClientNavigator,
   ServiceProviderNavigator,
-} from "./src/navigation/Navigators";
-import HttpContextProvider from "@store/http-context";
-import { GlobalStyles } from "@styles/styles";
+} from "@navigation/Navigators";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -84,13 +83,11 @@ export default function App() {
     <>
       <StatusBar style="dark" />
       <AuthContextProvider>
-        <HttpContextProvider>
-          <SchedulesContextProvider>
-            <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-              <Navigation />
-            </View>
-          </SchedulesContextProvider>
-        </HttpContextProvider>
+        <SchedulesContextProvider>
+          <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+            <Navigation />
+          </View>
+        </SchedulesContextProvider>
       </AuthContextProvider>
     </>
   );

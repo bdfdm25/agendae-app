@@ -11,7 +11,7 @@ export default function ScheduleListView({ schedules }) {
     <View style={styles.listContainer}>
       <FlatList
         data={schedules}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => item + index}
         renderItem={renderItem}
         maxToRenderPerBatch={5}
       />

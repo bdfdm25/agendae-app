@@ -18,10 +18,10 @@ export function HomeView({ fullname, isProfileUpdated, schedules }) {
 
         <View style={{ flex: 1 }}>
           <NextSchedule />
-          <View style={styles.scheduleContainer}>
+          {/* <View style={styles.scheduleContainer}>
             <Text style={GlobalStyles.sectionTitle}>Agendamentos de hoje</Text>
             <ScheduleList schedules={schedules} />
-          </View>
+          </View> */}
         </View>
       </>
     );
@@ -60,6 +60,7 @@ export function HomeView({ fullname, isProfileUpdated, schedules }) {
     <SafeAreaView style={[GlobalStyles.rootContainer]}>
       <View>
         <Title color={GlobalStyles.colors.primary400}>olá {fullname}!</Title>
+        {/* VALIDAR A CONDICAO PARA EXIBIR O AVISO E QNTD DE NOVOS AGENDAMENTOS */}
         {schedules.length > 0 && <Subtitle>5 novos agendamentos</Subtitle>}
       </View>
 

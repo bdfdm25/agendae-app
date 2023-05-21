@@ -19,9 +19,9 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      serviceName: "",
-      serviceDuration: "",
-      servicePrice: "",
+      name: "",
+      duration: "",
+      price: "",
     },
   });
 
@@ -29,9 +29,7 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
     <Form>
       <ScrollView>
         <View style={styles.headerContainer}>
-          <Title color={GlobalStyles.colors.primary400}>
-            período de serviço
-          </Title>
+          <Title color={GlobalStyles.colors.primary400}>serviço prestado</Title>
           <Subtitle>adicione um novo serviço</Subtitle>
         </View>
 
@@ -51,9 +49,9 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
                 value={value}
               />
             )}
-            name="serviceName"
+            name="name"
           />
-          {errors.serviceName && (
+          {errors.name && (
             <Text style={GlobalStyles.inputErrorMessage}>
               preenchimento obrigatório
             </Text>
@@ -77,9 +75,9 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
                 keyboardType="decimal-pad"
               />
             )}
-            name="serviceDuration"
+            name="duration"
           />
-          {errors.serviceDuration && (
+          {errors.duration && (
             <Text style={GlobalStyles.inputErrorMessage}>
               preenchimento obrigatório
             </Text>
@@ -105,9 +103,9 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
                 keyboardType="decimal-pad"
               />
             )}
-            name="servicePrice"
+            name="price"
           />
-          {errors.servicePrice && (
+          {errors.price && (
             <Text style={GlobalStyles.inputErrorMessage}>
               preenchimento obrigatório
             </Text>

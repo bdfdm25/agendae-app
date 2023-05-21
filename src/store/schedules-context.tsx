@@ -14,8 +14,7 @@ function scheduleReducer(state, action) {
     case "ADD":
       return [action.payload, ...state];
     case "SET":
-      const inverted = action.payload.reverse();
-      return inverted;
+      return action.payload;
     case "UPDATE":
       const updatableScheduleIndex = state.findIndex(
         (schedule) => schedule.id === action.payload.id
@@ -33,7 +32,7 @@ function scheduleReducer(state, action) {
 }
 
 function SchedulesContextProvider({ children }) {
-  const [schedulesState, dispatch] = useReducer(scheduleReducer, SCHEDULES);
+  const [schedulesState, dispatch] = useReducer(scheduleReducer, []);
 
   function addSchedule(scheduleData) {
     dispatch({ type: "ADD", payload: scheduleData });

@@ -4,14 +4,10 @@ import isEmpty from "lodash/isEmpty";
 import React, { useCallback, useState } from "react";
 import { Alert, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
-interface ItemProps {
-  item: any;
-}
-
-const AgendaItem = (props: ItemProps) => {
+export default function AgendaItem({ schedule }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const { item } = props;
-  console.log("[ITEM]", item);
+  const { item } = schedule;
+
   const buttonPressed = useCallback(() => {
     // Alert.alert("Show me more");
     setModalVisible(true);
@@ -61,9 +57,9 @@ const AgendaItem = (props: ItemProps) => {
       </Modal>
 
       <View style={styles.scheduleItemInnerContainer}>
-        <Text style={styles.serviceText}>{item.serviceType}</Text>
-        <Text style={styles.clientText}>{item.clientName}</Text>
-        <Text style={styles.dateTimeText}>{item.serviceTime}</Text>
+        <Text style={styles.serviceText}>{item.service.name}</Text>
+        <Text style={styles.clientText}>{item.client.name}</Text>
+        <Text style={styles.dateTimeText}>{item.hour}</Text>
       </View>
       <View style={styles.scheduleItemInnerContainer}>
         <IconButton
@@ -74,9 +70,7 @@ const AgendaItem = (props: ItemProps) => {
       </View>
     </Pressable>
   );
-};
-
-export default React.memo(AgendaItem);
+}
 
 const styles = StyleSheet.create({
   pressed: {

@@ -1,54 +1,32 @@
-import { PrimaryButton, Title } from "@components/ui";
-import { Ionicons } from "@expo/vector-icons";
-import { SchedulesContext } from "@store/schedules-context";
-import { AuthContext } from "@store/authentication-context";
+import EmptyScheduleWarning from "@components/Schedules/EmptyScheduleWarning";
+import { Title } from "@components/ui";
+
+import { AuthContext } from "@screens/Auth/context/authentication-context";
 import { GlobalStyles } from "@styles/styles";
 import { useContext } from "react";
-import { SafeAreaView, StatusBar, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, View } from "react-native";
 import Agenda from "./components/Agenda";
-import { styles } from "./styles";
-import EmptyScheduleWarning from "@components/Schedules/EmptyScheduleWarning";
 
-export function SchedulesView({ addNewScheduleHandler }) {
-  const schedulesCtx = useContext(SchedulesContext);
+export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
   const authCtx = useContext(AuthContext);
 
   function Schedules() {
-    return (
-      <>
-        <Agenda />
-      </>
-    );
+    return <Agenda />;
   }
 
   function Root() {
-    if (authCtx.isProfileUpdated && schedulesCtx.schedules.length > 0) {
+    if (authCtx.isProfileUpdated && scheduleList.length > 0) {
       return <Schedules />;
     }
 
-    if (authCtx.isProfileUpdated && schedulesCtx.schedules.length == 0) {
+    if (authCtx.isProfileUpdated && scheduleList.length == 0) {
       return (
-        <View style={{ marginTop: 60 }}>
-          <View style={styles.textOutterContainer}>
-            <Ionicons
-              name="alert-circle-outline"
-              size={80}
-              color={GlobalStyles.colors.primary400}
-            />
-            <View style={styles.textInnerContainer}>
-              <Text style={styles.title}>Ops! Sem agendamentos por aqui!</Text>
-            </View>
-            <View style={styles.textInnerContainer}>
-              <Text style={styles.subtitle}>
-                Adiocione um novo agendamento agora mesmo.
-              </Text>
-            </View>
-          </View>
-          <View style={{ marginTop: 60 }}>
-            <PrimaryButton onPress={addNewScheduleHandler}>
-              novo agendamento
-            </PrimaryButton>
-          </View>
+        <View style={{ marginTop: 60, marginHorizontal: 18 }}>
+          <EmptyScheduleWarning
+            label="novo agendamento"
+            message="Comece adicionando um novo agendamento em sua lista!"
+            route="NewSchedule"
+          />
         </View>
       );
     }
@@ -81,7 +59,8 @@ export function SchedulesView({ addNewScheduleHandler }) {
         <Title color={GlobalStyles.colors.primary400}>agendamentos</Title>
       </View>
       <View style={{ flex: 1 }}>
-        <Root />
+        {/* <Root /> */}
+        <Schedules />
       </View>
     </SafeAreaView>
   );

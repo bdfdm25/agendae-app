@@ -1,9 +1,8 @@
 import { createContext, useReducer } from "react";
 
-import { INewService } from "@models/new-service.interface";
-import { IOnboarding } from "@models/onboarding.interface";
 import { IOpeningHours } from "@models/opening-hours.interface";
 import { IProfile } from "@models/profile.interface";
+import { IService } from "@models/service.interface";
 
 enum OnboardingActionKind {
   PROFILE = "PROFILE",
@@ -31,10 +30,10 @@ const openingHours: IOpeningHours = {
   workHourEnd: "",
 };
 
-const newService: INewService = {
-  serviceName: "",
-  serviceDuration: "",
-  servicePrice: "",
+const newService: IService = {
+  name: "",
+  duration: "",
+  price: "",
 };
 
 const onboardingData: any = {
@@ -52,7 +51,7 @@ export const OnboardingContext = createContext({
   onboardingInfo: onboardingData,
   setProfileInfo: (data: IProfile) => {},
   setOpeningHours: (data: IOpeningHours) => {},
-  setNewServiceInfo: (data: INewService) => {},
+  setNewServiceInfo: (data: IService) => {},
 });
 
 function onboardingReducer(state: any, action: IOboardingAction) {
@@ -90,7 +89,7 @@ function OnboardingContextProvider({ children }) {
     dispatch({ type: OnboardingActionKind.OPENING_HOURS, payload: data });
   }
 
-  function setNewServiceInfo(data: INewService) {
+  function setNewServiceInfo(data: IService) {
     dispatch({ type: OnboardingActionKind.NEW_SERVICE, payload: data });
   }
 

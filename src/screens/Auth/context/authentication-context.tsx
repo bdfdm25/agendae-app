@@ -1,12 +1,17 @@
-import { ITokenPayload } from "@models/token-payload.interface";
-import { IUser } from "@models/user.interface";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwt_decode from "jwt-decode";
 import { createContext, useState } from "react";
+import { ITokenPayload } from "../models/token-payload.interface";
 
 export const AuthContext = createContext({
   token: "",
-  userInfo: { email: "", fullname: "", role: "" },
+  userInfo: {
+    id: "",
+    email: "",
+    fullname: "",
+    role: "",
+    serviceProviderId: "",
+  },
   isAuthenticated: false,
   isProfileUpdated: false,
   authenticate: (token: string) => {},
@@ -16,13 +21,19 @@ export const AuthContext = createContext({
 
 function AuthContextProvider({ children }) {
   const [authToken, setAuthToken] = useState("");
-  const [userInfo, setUserInfo] = useState<IUser>();
+  const [userInfo, setUserInfo] = useState({
+    id: "",
+    email: "",
+    fullname: "",
+    role: "",
+    serviceProviderId: "",
+  });
   const [profileUpdated, setProfileUpdated] = useState(false);
 
   function authenticate(token: string) {
-    const { id, email, fullname, role, profileUpdated } =
+    const { id, email, fullname, role, profileUpdated, serviceProviderId } =
       jwt_decode<ITokenPayload>(token);
-    setUserInfo({ id, email, fullname, role });
+    setUserInfo({ id, email, fullname, role, serviceProviderId });
     setAuthToken(token);
     setProfileUpdated(profileUpdated);
     AsyncStorage.setItem("accessToken", token);

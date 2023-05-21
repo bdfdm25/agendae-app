@@ -1,23 +1,21 @@
 import { IResetPassword } from "@models/reset-password.interface";
-import { Routes } from "@navigation/routes.helper";
-import { HttpContext } from "@store/http-context";
-import { useContext, useState } from "react";
+import { useAuth } from "@screens/Auth/hooks/auth-hook";
+import { useState } from "react";
 import { Alert } from "react-native";
 import ResetFormView from "./ResetFormView";
 
 export default function ResetForm({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
-  const httpCtx = useContext(HttpContext);
+  const { resetPassword } = useAuth();
 
   function navigationHandler() {
     navigation.goBack();
   }
 
   async function resetHandler(newPwdData: IResetPassword) {
-    setIsLoading(true);
-
     try {
-      await httpCtx.post(Routes.RESET_PASSWORD, newPwdData);
+      setIsLoading(true);
+      await resetPassword(newPwdData);
       setIsLoading(false);
       navigation.navigate("Signin");
     } catch (error) {

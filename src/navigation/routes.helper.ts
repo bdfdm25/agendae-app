@@ -7,13 +7,16 @@ export class Routes {
   // Auth
   static REGISTER_CLIENT = `${BASE_URL}/client`;
   static REGISTER_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
-  static SIGNIN = `${BASE_URL}/auth/signin`;
+  static SIGNIN = "/auth/signin";
   static SIGNUP = `${BASE_URL}/auth/signup`;
   static VALIDATION_CODE = `${BASE_URL}/password-recovery/validation-code`;
   static RESET_PASSWORD = `${BASE_URL}/password-recovery/reset`;
 
   // SERVICE PROVIDER
   static SAVE_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
+
+  // SCHEDULES
+  static GET_SCHEDULE_LIST = `${BASE_URL}/schedule/list`;
 }
 
 // export class Pages {

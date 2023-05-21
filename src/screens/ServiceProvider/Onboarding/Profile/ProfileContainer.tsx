@@ -1,8 +1,9 @@
 import { IProfile } from "@models/profile.interface";
-import { AuthContext } from "@store/authentication-context";
+
 import { OnboardingContext } from "@store/onboarding-context";
 import { useContext } from "react";
 import ProfileView from "./ProfileView";
+import { AuthContext } from "@screens/Auth/context/authentication-context";
 
 export default function Profile({ navigation }) {
   const profileCtx = useContext(OnboardingContext);

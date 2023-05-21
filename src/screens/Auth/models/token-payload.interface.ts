@@ -8,4 +8,5 @@ export interface ITokenPayload {
   iat: number;
   role: RoleEnum;
   profileUpdated: boolean;
+  serviceProviderId: string;
 }

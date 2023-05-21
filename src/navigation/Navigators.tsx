@@ -1,6 +1,6 @@
-import NewService from "@components/Onboarding/NewService";
-import OpeningHours from "@components/Onboarding/OpeningHours";
-import Profile from "@components/Onboarding/Profile";
+import NewService from "@screens/ServiceProvider/Onboarding/NewService";
+import OpeningHours from "@screens/ServiceProvider/Onboarding/OpeningHours";
+import Profile from "@screens/ServiceProvider/Onboarding/Profile";
 
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
