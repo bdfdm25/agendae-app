@@ -1,15 +1,12 @@
 import LoadingOverlay from "@components/ui/LoadingOverlay";
-import { Routes } from "@navigation/routes.helper";
 
+import { AuthContext } from "@screens/Auth/context/authentication-context";
 import { SchedulesContext } from "@store/schedules-context";
-import { HTTPMethod } from "@utils/enums/http-method.enum";
-import { useHttp } from "@utils/hooks/http-hook";
 import { localeToIsoDate } from "@utils/locale/LocaleConfig";
 import { useContext, useEffect, useState } from "react";
 import { Alert } from "react-native";
-import { HomeView } from "./HomeView";
-import { AuthContext } from "@screens/Auth/context/authentication-context";
 import { useSchedule } from "../hooks/schedule-hook";
+import { HomeView } from "./HomeView";
 
 export default function HomeContainer() {
   const today = localeToIsoDate(new Date().toLocaleDateString());
@@ -33,10 +30,10 @@ export default function HomeContainer() {
         console.error(error);
         Alert.alert("Ops...tivemos um problema", "Tente novamente mais tarde.");
       }
-      setIsLoading(false);
     }
 
-    getSchedules();
+    authCtx.isProfileUpdated ? getSchedules() : scheduleCtx.setSchedules([]);
+    setIsLoading(false);
   }, []);
 
   if (isLoading) {

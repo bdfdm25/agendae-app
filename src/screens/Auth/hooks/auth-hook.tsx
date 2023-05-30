@@ -1,9 +1,9 @@
 import { Routes } from "@navigation/routes.helper";
 import { HTTPMethod } from "@utils/enums/http-method.enum";
 import { useHttp } from "@utils/hooks/http-hook";
+import { IResetPassword } from "../models/reset-password.interface";
 import { ISignin } from "../models/signin.interface";
 import { IUser } from "../models/user.interface";
-import { IResetPassword } from "../models/reset-password.interface";
 
 export function useAuth() {
   const { fetchData } = useHttp();

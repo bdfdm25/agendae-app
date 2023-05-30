@@ -1,11 +1,11 @@
-import { ISignup } from "@models/signup.interface";
-import { IUser } from "@models/user.interface";
 import { useAuth } from "@screens/Auth/hooks/auth-hook";
 import { RoleEnum } from "@utils/enums/role.enum";
 import { useHttp } from "@utils/hooks/http-hook";
 import { useState } from "react";
 import { Alert } from "react-native";
 import { SignupView } from "./SignupView";
+import { ISignup } from "@screens/Auth/models/signup.interface";
+import { IUser } from "@screens/Auth/models/user.interface";
 
 export default function Signup({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
