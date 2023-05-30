@@ -1,7 +1,7 @@
-import { AuthContext } from "@store/authentication-context";
 import { useContext } from "react";
 import { Alert } from "react-native";
 import { SettingsView } from "./SettingsView";
+import { AuthContext } from "@screens/Auth/context/authentication-context";
 
 export default function Settings({ navigation }) {
   const authCtx = useContext(AuthContext);

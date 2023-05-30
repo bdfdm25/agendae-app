@@ -1,4 +1,4 @@
-import { INewService } from "./new-service.interface";
+import { IService } from "./service.interface";
 import { IOpeningHours } from "./opening-hours.interface";
 
 export interface IServiceProvider {
@@ -9,5 +9,5 @@ export interface IServiceProvider {
   naturalPersonDocument: string;
   legalPersonDocument: string;
   openingHours: IOpeningHours;
-  services: INewService[];
+  services: IService[];
 }

@@ -1,5 +1,5 @@
 export interface IClient {
-    name: string;
-    email: string;
-    password: string;
+  name: string;
+  email: string;
+  phone: string;
 }

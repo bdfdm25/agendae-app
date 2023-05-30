@@ -96,3 +96,8 @@ LocaleConfig.locales["pt-br"] = {
 LocaleConfig.defaultLocale = "pt-br";
 
 export { LocaleConfig };
+
+export function localeToIsoDate(localeDate: string): string {
+  const isodate = localeDate.split("/");
+  return `${isodate[2]}-${isodate[1]}-${isodate[0]}`;
+}

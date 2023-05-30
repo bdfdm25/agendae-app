@@ -1,21 +1,20 @@
-import { Routes } from "@navigation/routes.helper";
-import { HttpContext } from "@store/http-context";
-import { useContext, useState } from "react";
+import { useAuth } from "@screens/Auth/hooks/auth-hook";
+import { useState } from "react";
 import { Alert } from "react-native";
 import EmailFormView from "./EmailFormView";
 
 export default function EmailForm({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
-  const httpCtx = useContext(HttpContext);
+  const { sendCode } = useAuth();
 
   function navigationHandler() {
     navigation.goBack();
   }
 
   async function submitHandler(recoveryEmail: string) {
-    setIsLoading(true);
     try {
-      await httpCtx.post(Routes.VALIDATION_CODE, recoveryEmail);
+      setIsLoading(true);
+      await sendCode(recoveryEmail);
       setIsLoading(false);
       navigation.navigate("Reset");
     } catch (error) {

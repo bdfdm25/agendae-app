@@ -1,16 +1,16 @@
-import { ISignup } from "@models/signup.interface";
-import { IUser } from "@models/user.interface";
-import { Routes } from "@navigation/routes.helper";
-import { HttpContext } from "@store/http-context";
+import { useAuth } from "@screens/Auth/hooks/auth-hook";
 import { RoleEnum } from "@utils/enums/role.enum";
-import { useContext, useState } from "react";
+import { useHttp } from "@utils/hooks/http-hook";
+import { useState } from "react";
 import { Alert } from "react-native";
 import { SignupView } from "./SignupView";
+import { ISignup } from "@screens/Auth/models/signup.interface";
+import { IUser } from "@screens/Auth/models/user.interface";
 
 export default function Signup({ navigation }) {
   const [isLoading, setIsLoading] = useState(false);
-  const httpCtx = useContext(HttpContext);
-
+  const { fetchData } = useHttp();
+  const { signup } = useAuth();
   function signinHandler() {
     navigation.navigate("Signin");
   }
@@ -25,18 +25,8 @@ export default function Signup({ navigation }) {
       profileUpdated: false,
     };
 
-    // PROFILE SELECTION LOGIC FLOW
-    // if (signupData.serviceProvider) {
-    //   user.role = RoleEnum.SERVICE_PROVIDER;
-    // }
-
-    // if (signupData.client) {
-    //   user.role = RoleEnum.CLIENT;
-    // }
-
     try {
-      // await signup(user);
-      await httpCtx.post(Routes.SIGNUP, user);
+      await signup(user);
       setIsLoading(false);
       navigation.navigate("Signin");
     } catch (error) {
