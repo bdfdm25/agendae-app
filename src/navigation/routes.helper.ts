@@ -1,5 +1,5 @@
 export const BASE_URL =
-  "http://agendae-dev-env.eba-qmbcazzx.us-east-1.elasticbeanstalk.com/api";
+  "http://agendae-dev-env.eba-qpyn4cpf.us-east-1.elasticbeanstalk.com/api";
 
 // const BASE_URL = "http://189.61.155.33:3333/api";
 
