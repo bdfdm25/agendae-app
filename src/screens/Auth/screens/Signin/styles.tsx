@@ -40,6 +40,7 @@ export const styles = StyleSheet.create({
   },
   buttonOuterContainer: {
     overflow: "hidden",
+    alignItems: "center",
   },
   signUpCallContainer: {
     marginVertical: 20,

@@ -20,6 +20,10 @@ export const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
   },
+  buttonOuterContainer: {
+    overflow: "hidden",
+    alignItems: "center",
+  },
   disableInputColor: {
     backgroundColor: "#d4d4d4",
   },

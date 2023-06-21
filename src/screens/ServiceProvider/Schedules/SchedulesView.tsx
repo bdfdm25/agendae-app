@@ -1,4 +1,3 @@
-import EmptyScheduleWarning from "@components/Schedules/EmptyScheduleWarning";
 import { Title } from "@components/ui";
 
 import { AuthContext } from "@screens/Auth/context/authentication-context";
@@ -6,6 +5,7 @@ import { GlobalStyles } from "@styles/styles";
 import { useContext } from "react";
 import { SafeAreaView, StatusBar, View } from "react-native";
 import Agenda from "./components/Agenda";
+import EmptyScheduleList from "./components/EmptyScheduleList";
 
 export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
   const authCtx = useContext(AuthContext);
@@ -22,7 +22,7 @@ export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
     if (authCtx.isProfileUpdated && scheduleList.length == 0) {
       return (
         <View style={{ marginTop: 60, marginHorizontal: 18 }}>
-          <EmptyScheduleWarning
+          <EmptyScheduleList
             label="novo agendamento"
             message="Comece adicionando um novo agendamento em sua lista!"
             route="NewSchedule"
@@ -33,7 +33,7 @@ export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
 
     if (!authCtx.isProfileUpdated) {
       return (
-        <EmptyScheduleWarning
+        <EmptyScheduleList
           label="meu perfil"
           message="Atualize seu perfil para começar a visualizar seus agendamentos e
             gerenciar seus pagamentos."

@@ -1,4 +1,4 @@
-import { Platform, StatusBar } from "react-native";
+import { Platform } from "react-native";
 
 export const GlobalStyles = {
   colors: {

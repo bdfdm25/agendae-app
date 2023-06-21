@@ -112,12 +112,14 @@ export default function NewServiceView({ navigationHandler, submitHandler }) {
           )}
         </View>
 
-        <PrimaryButton onPress={handleSubmit(submitHandler)}>
-          concluir
-        </PrimaryButton>
-        <SecondaryButton onPress={() => navigationHandler("ScheduleConfig")}>
-          voltar
-        </SecondaryButton>
+        <View style={styles.buttonOuterContainer}>
+          <PrimaryButton onPress={handleSubmit(submitHandler)}>
+            concluir
+          </PrimaryButton>
+          <SecondaryButton onPress={() => navigationHandler("ScheduleConfig")}>
+            voltar
+          </SecondaryButton>
+        </View>
       </ScrollView>
     </Form>
   );

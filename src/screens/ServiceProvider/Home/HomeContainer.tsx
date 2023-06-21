@@ -9,7 +9,7 @@ import { useSchedule } from "../hooks/schedule-hook";
 import { HomeView } from "./HomeView";
 
 export default function HomeContainer() {
-  const today = localeToIsoDate(new Date().toLocaleDateString());
+  const today = localeToIsoDate(new Date().toLocaleDateString("pt-br"));
   const [isLoading, setIsLoading] = useState(true);
   const authCtx = useContext(AuthContext);
   const scheduleCtx = useContext(SchedulesContext);

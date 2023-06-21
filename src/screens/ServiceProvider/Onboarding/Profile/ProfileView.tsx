@@ -194,9 +194,11 @@ export default function ProfileView({ exitHandler, submitHandler, userInfo }) {
             </Text>
           )}
         </View>
-        <PrimaryButton onPress={handleSubmit(submitHandler)}>
-          próximo
-        </PrimaryButton>
+        <View style={styles.buttonOuterContainer}>
+          <PrimaryButton onPress={handleSubmit(submitHandler)}>
+            próximo
+          </PrimaryButton>
+        </View>
         {/* <View style={{ alignItems: "center" }}>
                     <IconButton onPress={handleSubmit(onSubmit)} icon="arrow-forward-circle-outline" size={68} />
                 </View> */}

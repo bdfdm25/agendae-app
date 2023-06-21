@@ -151,12 +151,14 @@ export default function OpeningHoursView({ navigationHandler, submitHandler }) {
           </View>
         </View>
 
-        <PrimaryButton onPress={handleSubmit(submitHandler)}>
-          próximo
-        </PrimaryButton>
-        <SecondaryButton onPress={() => navigationHandler("Profile")}>
-          voltar
-        </SecondaryButton>
+        <View style={styles.buttonOuterContainer}>
+          <PrimaryButton onPress={handleSubmit(submitHandler)}>
+            próximo
+          </PrimaryButton>
+          <SecondaryButton onPress={() => navigationHandler("Profile")}>
+            voltar
+          </SecondaryButton>
+        </View>
       </ScrollView>
     </Form>
   );

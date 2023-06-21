@@ -5,11 +5,10 @@ import Profile from "@screens/ServiceProvider/Onboarding/Profile";
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import EmailForm from "@screens/Auth/components/PwdRecovery/EmailForm";
-import PwdRecoveySuccessMsg from "@screens/Auth/components/PwdRecovery/PwdRecoverySuccessMsg";
-import ResetForm from "@screens/Auth/components/PwdRecovery/ResetForm";
-import SignIn from "@screens/Auth/components/Signin";
-import Signup from "@screens/Auth/components/Signup";
+import PwdRecoveySuccessMsg from "@screens/Auth/screens/PwdRecovery/PwdRecoverySuccessMsg";
+import ResetForm from "@screens/Auth/screens/PwdRecovery/ResetForm";
+import SignIn from "@screens/Auth/screens/Signin";
+import Signup from "@screens/Auth/screens/Signup";
 import HomeClient from "@screens/Client/Home";
 import Nearby from "@screens/Client/Nearby";
 import HomeServiceProvider from "@screens/ServiceProvider/Home";
@@ -19,6 +18,7 @@ import Settings from "@screens/Settings";
 import { SettingsNavigator } from "@screens/Settings/SettingsNavigator";
 import OnboardingContextProvider from "@store/onboarding-context";
 import { GlobalStyles } from "@styles/styles";
+import EmailForm from "@screens/Auth/screens/PwdRecovery/EmailForm";
 
 export function AuthNavigator() {
   const AuthStack = createNativeStackNavigator();

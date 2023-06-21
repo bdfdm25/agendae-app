@@ -6,7 +6,7 @@ import ProfileView from "./ProfileView";
 import { AuthContext } from "@screens/Auth/context/authentication-context";
 
 export default function Profile({ navigation }) {
-  const profileCtx = useContext(OnboardingContext);
+  const onboardingCtx = useContext(OnboardingContext);
   const authCtx = useContext(AuthContext);
 
   function exitHandler() {
@@ -14,7 +14,7 @@ export default function Profile({ navigation }) {
   }
 
   function submitHandler(data: IProfile) {
-    profileCtx.setProfileInfo(data);
+    onboardingCtx.setProfileInfo(data);
     navigation.navigate("OpeningHours");
   }
 

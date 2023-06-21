@@ -4,13 +4,13 @@ import OpeningHoursView from "./OpeningHoursView";
 import { IOpeningHours } from "@models/opening-hours.interface";
 
 export default function OpeningHours({ navigation }) {
-  const profileCtx = useContext(OnboardingContext);
+  const onboardingCtx = useContext(OnboardingContext);
   function navigationHandler(route: string) {
     navigation.navigate(route);
   }
 
   function submitHandler(data: IOpeningHours) {
-    profileCtx.setOpeningHours(data);
+    onboardingCtx.setOpeningHours(data);
     navigation.navigate("NewService");
   }
 

@@ -1,12 +1,9 @@
-import ScheduleList from "@components/Schedules/ScheduleList";
-
-import EmptyScheduleWarning from "@components/Schedules/EmptyScheduleWarning";
-import NextSchedule from "@components/Schedules/NextSchedule";
 import Search from "@components/Search/SearchContainer";
 import { Subtitle, Title } from "@components/ui";
 import { GlobalStyles } from "@styles/styles";
-import { SafeAreaView, Text, View } from "react-native";
-import { styles } from "./styles";
+import { SafeAreaView, View } from "react-native";
+import NextSchedule from "../Schedules/components/NextSchedule";
+import EmptyScheduleList from "../Schedules/components/EmptyScheduleList";
 
 export function HomeView({ fullname, isProfileUpdated, schedules }) {
   function Schedules() {
@@ -35,7 +32,7 @@ export function HomeView({ fullname, isProfileUpdated, schedules }) {
     if (isProfileUpdated && schedules.length == 0) {
       return (
         <View style={{ marginTop: 60 }}>
-          <EmptyScheduleWarning
+          <EmptyScheduleList
             label="novo agendamento"
             message="Comece adicionando um novo agendamento em sua lista!"
             route="NewSchedule"
@@ -46,7 +43,7 @@ export function HomeView({ fullname, isProfileUpdated, schedules }) {
 
     if (!isProfileUpdated) {
       return (
-        <EmptyScheduleWarning
+        <EmptyScheduleList
           label="meu perfil"
           message="Atualize seu perfil para começar a visualizar seus agendamentos e
             gerenciar seus pagamentos."
