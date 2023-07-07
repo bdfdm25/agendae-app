@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { Platform, StatusBar } from "react-native";
 
 export const GlobalStyles = {
   colors: {
@@ -19,12 +19,14 @@ export const GlobalStyles = {
     switchThumbDisable: "#F4F3F4",
     switchIosBackground: "#3E3E3E",
     inputPlaceholderColor: "#767577",
+    clearCardBackground: "#F4F3F4",
+    error500: "#D12335",
   },
   rootContainer: {
     flex: 1,
     marginHorizontal: 18,
     marginTop: 40,
-    paddingTop: Platform.OS === "android" ? 15 : 0,
+    paddingTop: StatusBar.currentHeight,
   },
   centerContainer: {
     flex: 1,

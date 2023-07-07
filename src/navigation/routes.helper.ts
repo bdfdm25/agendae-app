@@ -6,7 +6,6 @@ export const BASE_URL =
 export class Routes {
   // Auth
   static REGISTER_CLIENT = `${BASE_URL}/client`;
-  static REGISTER_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
   static SIGNIN = "/auth/signin";
   static SIGNUP = `${BASE_URL}/auth/signup`;
   static VALIDATION_CODE = `${BASE_URL}/password-recovery/validation-code`;
@@ -14,6 +13,7 @@ export class Routes {
 
   // SERVICE PROVIDER
   static SAVE_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
+  static GET_ADDRESS_BY_CEP = `${BASE_URL}/service-provider/address`;
 
   // SCHEDULES
   static GET_SCHEDULE_LIST = `${BASE_URL}/schedule/list`;

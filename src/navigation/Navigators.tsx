@@ -19,6 +19,7 @@ import { SettingsNavigator } from "@screens/Settings/SettingsNavigator";
 import OnboardingContextProvider from "@store/onboarding-context";
 import { GlobalStyles } from "@styles/styles";
 import EmailForm from "@screens/Auth/screens/PwdRecovery/EmailForm";
+import { ServicesNavigator } from "@screens/ServiceProvider/Services/routes/ServicesNavigator";
 
 export function AuthNavigator() {
   const AuthStack = createNativeStackNavigator();
@@ -122,6 +123,14 @@ export function ServiceProviderNavigator() {
       <ServiceProviderStack.Screen
         name="ServiceProviderOnboarding"
         component={ServiceProviderOnboardingNavigator}
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+      />
+      <ServiceProviderStack.Screen
+        name="Services"
+        component={ServicesNavigator}
         options={{
           headerShown: false,
           headerTransparent: true,

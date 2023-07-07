@@ -8,7 +8,7 @@ import { Alert } from "react-native";
 import { useSchedule } from "../hooks/schedule-hook";
 import { HomeView } from "./HomeView";
 
-export default function HomeContainer() {
+export default function HomeContainer({ navigation }) {
   const today = localeToIsoDate(new Date().toLocaleDateString("pt-br"));
   const [isLoading, setIsLoading] = useState(true);
   const authCtx = useContext(AuthContext);
@@ -45,6 +45,7 @@ export default function HomeContainer() {
       fullname={authCtx.userInfo.fullname}
       isProfileUpdated={authCtx.isProfileUpdated}
       schedules={scheduleCtx.schedules}
+      navigation={navigation}
     />
   );
 }

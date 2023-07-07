@@ -62,11 +62,12 @@ export default function App() {
   }
 
   function AuthenticatedStack() {
-    const authCtx = useContext(AuthContext);
-    if (authCtx.userInfo.role === RoleEnum.SERVICE_PROVIDER) {
-      return <ServiceProviderNavigator />;
-    }
-    return <ClientNavigator />;
+    return <ServiceProviderNavigator />;
+    // const authCtx = useContext(AuthContext);
+    // if (authCtx.userInfo.role === RoleEnum.SERVICE_PROVIDER) {
+    //   return <ServiceProviderNavigator />;
+    // }
+    // return <ClientNavigator />;
   }
 
   function Navigation() {

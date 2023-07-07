@@ -17,6 +17,8 @@ const Colors = {
   switchIosBackground: "#3e3e3e",
   inputPlaceholderColor: "#767577",
   disabledInputBackgroundColor: "#d4d4d4",
+  clearCardBackground: "#F4F3F4",
+  error500: "#D12335",
 };
 
 export default Colors;

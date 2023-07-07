@@ -10,27 +10,7 @@ import EmptyScheduleList from "./components/EmptyScheduleList";
 export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
   const authCtx = useContext(AuthContext);
 
-  function Schedules() {
-    return <Agenda />;
-  }
-
   function Root() {
-    if (authCtx.isProfileUpdated && scheduleList.length > 0) {
-      return <Schedules />;
-    }
-
-    if (authCtx.isProfileUpdated && scheduleList.length == 0) {
-      return (
-        <View style={{ marginTop: 60, marginHorizontal: 18 }}>
-          <EmptyScheduleList
-            label="novo agendamento"
-            message="Comece adicionando um novo agendamento em sua lista!"
-            route="NewSchedule"
-          />
-        </View>
-      );
-    }
-
     if (!authCtx.isProfileUpdated) {
       return (
         <EmptyScheduleList
@@ -41,6 +21,8 @@ export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
         />
       );
     }
+
+    return <Agenda />;
   }
 
   return (
@@ -59,8 +41,7 @@ export function SchedulesView({ addNewScheduleHandler, scheduleList }) {
         <Title color={GlobalStyles.colors.primary400}>agendamentos</Title>
       </View>
       <View style={{ flex: 1 }}>
-        {/* <Root /> */}
-        <Schedules />
+        <Root />
       </View>
     </SafeAreaView>
   );
