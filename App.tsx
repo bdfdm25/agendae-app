@@ -2,26 +2,35 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import SchedulesContextProvider from "@store/schedules-context";
 
+import {
+  AuthNavigator,
+  ServiceProviderNavigator,
+} from "@navigation/Navigators";
 import AuthContextProvider, {
   AuthContext,
 } from "@screens/Auth/context/authentication-context";
-import { RoleEnum } from "@utils/enums/role.enum";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { View } from "react-native";
-import {
-  AuthNavigator,
-  ClientNavigator,
-  ServiceProviderNavigator,
-} from "@navigation/Navigators";
+import { DefaultTheme, PaperProvider } from "react-native-paper";
+import { GlobalStyles } from "@styles/styles";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const authCtx = useContext(AuthContext);
+
+  const customTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: GlobalStyles.colors.primary500,
+      secondary: GlobalStyles.colors.primary300,
+    },
+  };
 
   useEffect(() => {
     async function prepare() {
@@ -63,11 +72,6 @@ export default function App() {
 
   function AuthenticatedStack() {
     return <ServiceProviderNavigator />;
-    // const authCtx = useContext(AuthContext);
-    // if (authCtx.userInfo.role === RoleEnum.SERVICE_PROVIDER) {
-    //   return <ServiceProviderNavigator />;
-    // }
-    // return <ClientNavigator />;
   }
 
   function Navigation() {
@@ -85,9 +89,11 @@ export default function App() {
       <StatusBar style="dark" />
       <AuthContextProvider>
         <SchedulesContextProvider>
-          <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
-            <Navigation />
-          </View>
+          <PaperProvider>
+            <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+              <Navigation />
+            </View>
+          </PaperProvider>
         </SchedulesContextProvider>
       </AuthContextProvider>
     </>

@@ -25,3 +25,16 @@ export function useHttp() {
 
   return { fetchData: fetchData };
 }
+
+// .then((res) => {
+//     console.info(res.data);
+// })
+// .catch((error) => {
+//     if (error.response) {
+//         console.log(error.response.data);
+//     } else if (error.request) {
+//         console.log(error.request);
+//     } else {
+//         console.log("Error", error.message);
+//     }
+// });

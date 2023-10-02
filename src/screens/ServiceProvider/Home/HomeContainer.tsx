@@ -27,7 +27,7 @@ export default function HomeContainer({ navigation }) {
         const schedules = await getScheduleList(body);
         scheduleCtx.setSchedules(schedules);
       } catch (error) {
-        console.error(error);
+        console.error("[HOME]", error);
         Alert.alert("Ops...tivemos um problema", "Tente novamente mais tarde.");
       }
     }

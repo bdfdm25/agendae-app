@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import ServiceItem from "../ServiceItem";
 
 export function ServiceListView({ serviceList }) {
@@ -7,11 +7,13 @@ export function ServiceListView({ serviceList }) {
   }
 
   return (
-    <FlatList
-      data={serviceList}
-      keyExtractor={(item, index) => item + index}
-      renderItem={renderItem}
-    />
+    <SafeAreaView>
+      <FlatList
+        data={serviceList}
+        keyExtractor={(item, index) => item + index}
+        renderItem={renderItem}
+      />
+    </SafeAreaView>
     // <ServiceItem service={[]} />
   );
 }

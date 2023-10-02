@@ -49,7 +49,7 @@ export default function NewService({ navigation }) {
       authCtx.updateProfile();
       navigation.navigate("Home");
     } catch (error) {
-      console.error(error);
+      console.error("[ONBOARDING - NEW SERVICE]", error);
       Alert.alert("Ops...tivemos um problema", "Tente novamente mais tarde.");
     }
   }

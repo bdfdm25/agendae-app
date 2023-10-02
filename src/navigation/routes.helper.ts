@@ -1,22 +1,23 @@
-export const BASE_URL =
-  "http://agendae-dev-env.eba-qpyn4cpf.us-east-1.elasticbeanstalk.com/api";
+// export const BASE_URL =
+//   "http://agendae-dev-env.eba-qpyn4cpf.us-east-1.elasticbeanstalk.com/api";
 
-// const BASE_URL = "http://189.61.155.33:3333/api";
+// Running localhost withg NgRok
+export const BASE_URL = "https://upward-beagle-pretty.ngrok-free.app/api";
 
 export class Routes {
   // Auth
-  static REGISTER_CLIENT = `${BASE_URL}/client`;
+  static REGISTER_CLIENT = "/client";
   static SIGNIN = "/auth/signin";
-  static SIGNUP = `${BASE_URL}/auth/signup`;
-  static VALIDATION_CODE = `${BASE_URL}/password-recovery/validation-code`;
-  static RESET_PASSWORD = `${BASE_URL}/password-recovery/reset`;
+  static SIGNUP = "/auth/signup";
+  static VALIDATION_CODE = "/password-recovery/validation-code";
+  static RESET_PASSWORD = "/password-recovery/reset";
 
   // SERVICE PROVIDER
-  static SAVE_SERVICE_PROVIDER = `${BASE_URL}/service-provider/save`;
-  static GET_ADDRESS_BY_CEP = `${BASE_URL}/service-provider/address`;
+  static SAVE_SERVICE_PROVIDER = "/service-provider/save";
+  static GET_ADDRESS_BY_CEP = "/service-provider/address";
 
   // SCHEDULES
-  static GET_SCHEDULE_LIST = `${BASE_URL}/schedule/list`;
+  static GET_SCHEDULE_LIST = "/schedule/list";
 }
 
 // export class Pages {

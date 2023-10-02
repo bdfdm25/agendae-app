@@ -29,7 +29,7 @@ export default function Agenda() {
       });
       scheduleCtx.setSchedules(schedules);
     } catch (error) {
-      console.error(error);
+      console.error("[AGENDA]", error);
       Alert.alert("Ops...tivemos um problema", "Tente novamente mais tarde.");
     }
     setIsLoading(false);

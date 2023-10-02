@@ -18,7 +18,7 @@ export default function SignIn({ navigation }) {
       const response: string = await signin(signInData);
       authCtx.authenticate(response);
     } catch (error) {
-      console.error(error);
+      console.error("[AUTH]", error);
       if (error.response.status === HttpStatusCode.Conflict) {
         Alert.alert("Falha na autenticação!", "Este e-mail já esta em uso.");
       } else {

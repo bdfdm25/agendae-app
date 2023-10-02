@@ -40,7 +40,7 @@ export function SigninView({
     <View style={styles.innerContainer}>
       <View style={styles.titleContainer}>
         <Title color={GlobalStyles.colors.primary400}>agendaê</Title>
-        <Subtitle>Bem vindo de volta</Subtitle>
+        <Subtitle>bem vindo de volta</Subtitle>
       </View>
 
       <View style={styles.inputOuterContainer}>
@@ -126,7 +126,7 @@ export function SigninView({
           style={styles.forgotPasswordText}
           onPress={passwordRecoveryHandler}
         >
-          Esqueceu sua senha?
+          esqueceu sua senha?
         </Text>
       </View>
 
@@ -134,7 +134,7 @@ export function SigninView({
 
       <View style={styles.signUpCallContainer}>
         <Text style={styles.signUpCallText}>
-          Ainda não tem uma conta?{" "}
+          ainda não tem uma conta?{" "}
           <Text style={styles.signUpCallLink} onPress={signupHandler}>
             Crie uma agora!
           </Text>

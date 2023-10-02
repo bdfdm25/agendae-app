@@ -35,37 +35,7 @@ export const SERVICELIST = [
     price: "R$ 65",
   },
   {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
-    duration: "55",
-    price: "R$ 65",
-  },
-  {
-    name: "Servico Teste 07",
+    name: "Servico Teste 08",
     duration: "55",
     price: "R$ 65",
   },
